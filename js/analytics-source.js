@@ -49,7 +49,7 @@
     var pa = function () {
         var a = [];
         this.set = function (b) {
-            a[b] = true
+            a[b] = true;
         };
         this.M = function () {
             for (var b = [], c = 0; c < a.length; c++)
@@ -60,23 +60,23 @@
         };
     };
     function J(a) {
-        pa.set(a)
-    };
+        pa.set(a);
+    }
     function isFunction(obj) {
-        return "function" == typeof obj
+        return "function" == typeof obj;
     }
     function isString(obj) {
-        return undefined != obj && -1 < (obj.constructor + "").indexOf("String")
+        return undefined !== obj && -1 < (obj.constructor + "").indexOf("String");
     }
     function randomInteger() {
-        return Math.round(2147483647 * Math.random())
+        return Math.round(2147483647 * Math.random());
     }
     function createSmallestImage(link) {
         var img = document.createElement("img");
         img.width = 1;
         img.height = 1;
         img.src = link;
-        return img
+        return img;
     }
     function L() {
 
@@ -85,20 +85,20 @@
         if (encodeURIComponent instanceof Function)
             return encodeURIComponent(a);
         J(28);
-        return a
+        return a;
     }
     function ka(a) {
-        return sa(a).replace(/\(/g, "%28").replace(/\)/g, "%29")
+        return sa(a).replace(/\(/g, "%28").replace(/\)/g, "%29");
     }
     var ta = function (a, b, c, d) {
         try {
-            a.addEventListener ? a.addEventListener(b, c, !!d) : a.attachEvent && a.attachEvent("on" + b, c)
+            a.addEventListener ? a.addEventListener(b, c, !!d) : a.attachEvent && a.attachEvent("on" + b, c);
         } catch (e) {
-            J(27)
+            J(27);
         }
     },
         ua = function (a, b, c) {
-            a.removeEventListener ? a.removeEventListener(b, c, false) : a.detachEvent && a.detachEvent("on" + b, c)
+            a.removeEventListener ? a.removeEventListener(b, c, false) : a.detachEvent && a.detachEvent("on" + b, c);
         };
     function createScriptNode(link, id) {
         if (link) {
@@ -108,12 +108,12 @@
             scriptNode.src = link;
             scriptNode.id = id;
             var firstScriptNode = document.getElementsByTagName("script")[0];
-            firstScriptNode.parentNode.insertBefore(scriptNode, firstScriptNode)
+            firstScriptNode.parentNode.insertBefore(scriptNode, firstScriptNode);
         }
     }
     function currentHostname() {
         var a = "" + document.location.hostname;
-        return 0 == a.indexOf("www.") ? a.substring(4) : a
+        return 0 === a.indexOf("www.") ? a.substring(4) : a;
     }
     function va(a) {
         var b = document.referrer;
@@ -122,39 +122,40 @@
             a = "//" + document.location.hostname;
             var c = b.indexOf(a);
             if (5 == c || 6 == c)
-                if (a = b.charAt(c + a.length), "/" == a || "?" == a || "" == a || ":" == a)
+                if (a = b.charAt(c + a.length), "/" == a || "?" == a || "" === a || ":" == a)
                     return;
-            return b
+            return b;
         }
     }
     function wa(a, b) {
-        if (1 == b.length && null != b[0] && "object" === typeof b[0])
+        if (1 == b.length && null !== b[0] && "object" === typeof b[0])
             return b[0];
         for (var c = {}, d = Math.min(a.length + 1, b.length), e = 0; e < d; e++)
             if ("object" === typeof b[e]) {
-                for (var g in b[e]) b[e].hasOwnProperty(g) && (c[g] = b[e][g]);
-                break
+                for (var g in b[e]) 
+                    b[e].hasOwnProperty(g) && (c[g] = b[e][g]);
+                break;
             } else
                 e < a.length && (c[a[e]] = b[e]);
-        return c
-    };
+        return c;
+    }
     var N = function () {
         this.keys = [];
         this.w = {};
-        this.m = {}
+        this.m = {};
     };
     N.prototype.set = function (a, b, c) {
         this.keys.push(a);
-        c ? this.m[":" + a] = b : this.w[":" + a] = b
+        c ? this.m[":" + a] = b : this.w[":" + a] = b;
     };
     N.prototype.get = function (a) {
-        return this.m.hasOwnProperty(":" + a) ? this.m[":" + a] : this.w[":" + a]
+        return this.m.hasOwnProperty(":" + a) ? this.m[":" + a] : this.w[":" + a];
     };
     N.prototype.map = function (callBack) {
         for (var i = 0; i < this.keys.length; i++) {
             var key = this.keys[i],
                 val = this.get(key);
-            val && callBack(key, val)
+            val && callBack(key, val);
         }
     };
     var xa = function (a) {
@@ -164,23 +165,23 @@
             try {
                 var c = window.external;
                 if (c && c._gaUserPrefs && "oo" == c._gaUserPrefs)
-                    return true
+                    return true;
             } catch (d) {
 
             }
-            return false
+            return false;
         },
         fb = function (a) {
-            setTimeout(a, 100)
+            setTimeout(a, 100);
         },
         ya = function (a) {
             var b = [], c = document.cookie.split(";");
             a = RegExp("^\\s*" + a + "=\\s*(.*?)\\s*$");
             for (var d = 0; d < c.length; d++) {
                 var e = c[d].match(a);
-                e && b.push(e[1])
+                e && b.push(e[1]);
             }
-            return b
+            return b;
         },
         hostMainName = function(){
             var mainName = '',
@@ -196,7 +197,7 @@
                 return false;
             b && 1200 < b.length && (b = b.substring(0, 1200), J(24));
             c = a + "=" + b + "; path=" + c + "; ";
-            g && (c += "expires=" + (new Date((new Date)[getTime]() + g)).toGMTString() + "; ");
+            g && (c += "expires=" + (new Date((new Date()).getTime() + g)).toGMTString() + "; ");
             d && "none" != d && (c += "domain=" + d + ";");
             d = document.cookie;
             document.cookie = c;
@@ -219,11 +220,11 @@
     },
         Da = function (a) {
             setName(this, "len");
-            this.message = a + "-8192"
+            this.message = a + "-8192";
         },
         Ea = function (a) {
             setName(this, "ff2post");
-            this.message = a + "-2036"
+            this.message = a + "-2036";
         },
         Ga = function (a, b) {
             b = b || L;
@@ -233,7 +234,7 @@
                 var c = b;
                 if (0 <= window.navigator.userAgent.indexOf("Firefox") && ![].reduce)
                     throw new Ea(a.length);
-                xc(a, c) || Fa(a, c)
+                xc(a, c) || Fa(a, c);
             } else
                 throw new Da(a.length);
         },
@@ -242,31 +243,31 @@
             c.onload = c.onerror = function () {
                 c.onload = null;
                 c.onerror = null;
-                b()
-            }
+                b();
+            };
         },
         xc = function (a, b) {
             var c, d = window.XDomainRequest;
             if (d)
-                c = new d,
+                c = new d(),
                     c.open("POST", oc() + "/log/collect.php");
             else if (d = window.XMLHttpRequest)
-                d = new d,
+                d = new d(),
                     "withCredentials" in d && (c = d, c.open("POST", oc() + "/log/collect.php", true), c.setRequestHeader("Content-Type", "text/plain"));
             if (c)
                 return c.onreadystatechange = function () {
-                    4 == c.readyState && (b(), c = null)
+                    4 == c.readyState && (b(), c = null);
                 },
-                    c.send(a), true
+                    c.send(a), true;
         },
         Fa = function (a, b) {
             if (document.body) {
                 a = encodeURIComponent(a);
                 try {
-                    var c = document.createElement('<iframe name="' + a + '"></iframe>')
+                    var c = document.createElement('<iframe name="' + a + '"></iframe>');
                 } catch (d) {
                     c = document.createElement("iframe"),
-                        setName(c, a)
+                        setName(c, a);
                 }
                 c.height = "0";
                 c.width = "0";
@@ -277,7 +278,7 @@
                     e = oc() + "/analytics_iframe.html#" + encodeURIComponent(e.protocol + "//" + e.host + "/favicon.ico"),
                     g = function () {
                         c.src = "";
-                        c.parentNode && c.parentNode.removeChild(c)
+                        c.parentNode && c.parentNode.removeChild(c);
                     };
                 ta(window, "beforeunload", g);
                 var ca = false, l = 0, k = function () {
@@ -294,19 +295,19 @@
 
                         }
                         l++;
-                        setTimeout(k, 200)
+                        setTimeout(k, 200);
                     }
                 };
                 ta(c, "load", k);
                 document.body.appendChild(c);
-                c.src = e
+                c.src = e;
             } else
                 fb(function () {
-                    Fa(a, b)
-                })
+                    Fa(a, b);
+                });
         };
     var Ha = function () {
-        this.t = []
+        this.t = [];
     };
     Ha.prototype.add = function (a) {
         this.t.push(a)
