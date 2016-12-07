@@ -48,7 +48,7 @@
         Ub = "parentNode",
         H = "join",
         I = "toLowerCase";
-    var pa = function () {
+    var pa = new function () {
         var a = [];
         this.set = function (b) {
             a[b] = true;
