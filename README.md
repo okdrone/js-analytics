@@ -1,1 +1,1 @@
-# js-analytics
+# js-analytics (Just for study)
