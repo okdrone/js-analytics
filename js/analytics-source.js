@@ -2,7 +2,9 @@
     var n = Math,
         ea = RegExp;
 
-    var __serverHost = 'analytics.demo.com';
+    var __serverHost = 'www.test.com';
+
+    var defaultAnalyticsName = 'ta';
 
     function setName(obj, val) {
         return obj.name = val;
@@ -504,11 +506,11 @@
 
     };
     var ld;
-    if ((ld = isString(window.FtcAnalyticsObject))) {
-        var md = window.FtcAnalyticsObject;
+    if ((ld = isString(window.XXAnalyticsObject))) {
+        var md = window.XXAnalyticsObject;
         ld = md ? md.replace(/^[\s\xa0]+|[\s\xa0]+$/g, "") : "";
     }
-    var gb = ld || "fa",
+    var gb = ld || defaultAnalyticsName,
         Ba = false,
         hb = T("apiVersion", "v"),
         ib = T("clientVersion", "_v");
@@ -646,7 +648,8 @@
         X("get", a, a.get);
         X("set", a, a.set);
         (window.gaplugins = window.gaplugins || {}).Linker = Dc;
-        a = Dc.prototype; Z.C("linker", Dc);
+        a = Dc.prototype; 
+        Z.C("linker", Dc);
         X("decorate", a, a.Q, 20);
         X("autoLink", a, a.S, 25);
         Z.C("displayfeatures", fd);
