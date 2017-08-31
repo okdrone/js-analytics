@@ -131,7 +131,9 @@
     Ha[z].add=function(a){this.t[p](a)};
     Ha[z].D=function(a){try{for(var b=0;b<this.t[y];b++){var c=a.get(this.t[b]);c&&K(c)&&c[C](O,a)}}catch(d){}b=a.get(Ia);b!=L&&K(b)&&(a.set(Ia,L,!0),ba(b,10))};
     
-    function Ja(a){if(100!=a.get(Ka)&&La(P(a,Q))%1E4>=100*R(a,Ka))throw"abort";}
+    function Ja(a){
+        if(100!=a.get(Ka)&&La(P(a,Q))%1E4>=100*R(a,Ka))throw"abort";
+    }
     function Ma(a){if(xa(P(a,Na)))throw"abort";}
     function Oa(){var a=M[B][E];if("http:"!=a&&"https:"!=a)throw"abort";}
     function Pa(a){a.set(Ac,R(a,Ac)+1);var b=[];Qa.map(function(c,d){if(d.p){var e=a.get(c);void 0!=e&&e!=d[ia]&&("boolean"==typeof e&&(e*=1),b[p](d.p+"="+sa(""+e)))}});b[p]("z="+ra());a.set(Ra,b[H]("&"),!0)}
@@ -435,6 +437,7 @@
         },
         Gc=function(a,b,c){for(var d=[],e=[],g,ca=0;ca<a[y];ca++){var l=a[ca];if(l.r[c]==b)d[p](l);else void 0==g||l.r[c]<g?(e=[l],g=l.r[c]):l.r[c]==g&&e[p](l)}return 0<d[y]?d:e},
         lc=function(a){
+            // 0 == a.indexOf(".") ? a.substr(1) : a
             return 0==a[t](".")?a.substr(1):a
         },
         ic=function(a){
@@ -553,21 +556,22 @@ var ad,bd=function(a,b,c){if(!ad){var d;d=M[B][h];var e=O[v],g=/^#?gaso=([^&]*)/
         // ma -->> hostname
         // ga -->> search
         
-        c&&a.set(qb,c.width+"x"+c.height);
-        c&&a.set(pb,c.colorDepth+"-bit");
+        c&&a.set(qb,c.width+"x"+c.height); // Screen Resolution
+        c&&a.set(pb,c.colorDepth+"-bit");  // Screen Colors
         var c=M.documentElement,
             g=(e=M.body)&&e[la]&&e[na],ca=[];
         
         c&&c[la]&&c[na]&&("CSS1Compat"===M.compatMode||!g)?ca=[c[la],c[na]]:g&&(ca=[e[la],e[na]]);
         c=0>=ca[0]||0>=ca[1]?"":ca[H]("x");
         a.set(rb,c); // viewportSize
-        a.set(tb,fc());
-        a.set(ob,M.characterSet||M.charset);
-        a.set(sb,b&&"function"===typeof b.javaEnabled&&b.javaEnabled()||!1);
+        a.set(tb,fc()); // Flash Version
+        a.set(ob,M.characterSet||M.charset); // Encoding
+        a.set(sb,b&&"function"===typeof b.javaEnabled&&b.javaEnabled()||!1); // Java Enable
         a.set(nb,(b&&(b.language||b.browserLanguage)||"")[I]());// language
         
         if(d&&a.get(cc)&&(b=M[B][h])){
-            b=b[F](1);b=b[A]("&");
+            b=b[F](1); /// b.substring(1)
+            b=b[A]("&");// b.split("&")
             d=[];
             // (c = 0; c < b.length; ++c)
             for(c=0;c<b[y];++c)
